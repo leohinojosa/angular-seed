@@ -1,0 +1,73 @@
+// Whitespace Helpers
+//
+// Style guide: whitespace
+
+// Whitespace Helpers
+//
+// Markup:
+// <div style='border: 1px solid gray;'>
+//   <div class="{{modifier_class}}" style='background-color:#E1E1E1; border: 1px solid black'>
+//     <div style='background-color: white'>Content!</div>
+//   </div>
+// </div>
+//
+// .pam - padding all medium
+// .pvm - padding vertical medium
+// .ptm - padding top medium
+// .pbm - padding bottom medium
+// .phm - padding horizontal medium
+// .plm - padding left medium
+// .prm - padding right medium
+// .mam - margin all medium
+// .mvm - margin vertical medium
+// .mtm - margin top medium
+// .mbm - margin bottom medium
+// .mhm - margin horizontal medium
+// .mlm - margin left medium
+// .mrm - margin right medium
+// .pas - padding all small
+// .pvs - padding vertical small
+// .pts - padding top small
+// .pbs - padding bottom small
+// .phs - padding horizontal small
+// .pls - padding left small
+// .prs - padding right small
+// .mas - margin all small
+// .mvs - margin vertical small
+// .mts - margin top small
+// .mbs - margin bottom small
+// .mhs - margin horizontal small
+// .mls - margin left small
+// .mrs - margin right small
+//
+// Style guide: whitespace.all
+
+$kinds-of-spacing = {
+  p: 'padding',
+  m: 'margin'
+}
+
+$sides = {
+  a: (''),
+  l: ('-left'),
+  r: ('-right'),
+  h: ('-left' '-right'),
+  v: ('-top' '-bottom'),
+  t: ('-top'),
+  b: ('-bottom')
+}
+
+$sizes = {
+  xs: 5px,
+  s: 10px,
+  m: 20px,
+  l: 40px,
+  xl: 60px
+}
+
+for spacingKind, spacingPrefix in $kinds-of-spacing
+  for key, props in $sides
+    for sizeKey, sizeValue in $sizes
+      .{spacingKind}{key}{sizeKey}
+        for prop in props
+          {spacingPrefix}{prop}: sizeValue;
