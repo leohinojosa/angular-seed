@@ -8,6 +8,8 @@ import { NavComponent } from './nav/nav.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
+import {PostsService} from './posts.service'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +22,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [PostsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
