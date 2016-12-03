@@ -7,7 +7,7 @@ import { Post } from './shared/models/post';
 //import { POSTS}  from './shared/mocks/mock-posts';
 
 @Injectable()
-export class PostsService {
+export class  PostsService {
 
   url = 'https://jsonplaceholder.typicode.com/posts';
 
