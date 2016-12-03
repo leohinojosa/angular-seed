@@ -4,14 +4,29 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { DashboardComponent } from './dashboard.component';
+import {Observable} from "rxjs";
+
+import {Post} from "../shared/models/post";
+import {POSTS} from "../shared/mocks/mock-posts";
+import {PostsService} from "../posts.service";
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
   let fixture: ComponentFixture<DashboardComponent>;
 
+
+
   beforeEach(async(() => {
+
+    class postServiceMock {
+      getPosts() : Observable<Post[]>{
+        return Observable.of(POSTS);
+      }
+    }
+
     TestBed.configureTestingModule({
-      declarations: [ DashboardComponent ]
+      declarations: [ DashboardComponent ],
+      providers:[{ provide: PostsService, useClass: postServiceMock }]
     })
     .compileComponents();
   }));
@@ -24,5 +39,6 @@ describe('DashboardComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+    expect(component.posts).toBe(POSTS);
   });
 });

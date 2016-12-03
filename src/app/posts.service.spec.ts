@@ -10,7 +10,7 @@ describe('PostsService', () => {
     });
   });
 
-  it('should ...', inject([PostsService], (service: PostsService) => {
+  xit('should ...', inject([PostsService], (service: PostsService) => {
     expect(service).toBeTruthy();
   }));
 });
