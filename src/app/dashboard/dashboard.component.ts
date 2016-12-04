@@ -9,6 +9,8 @@ import { Post } from './../shared/models/post';
 })
 export class DashboardComponent implements OnInit {
 
+  title = "Dashboard";
+
   results = [
     {id:1000, title:'Zero',summary:'test'},
     {id:1001, title:'One',summary:'test'},

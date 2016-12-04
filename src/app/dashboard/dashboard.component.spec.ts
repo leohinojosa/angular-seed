@@ -37,8 +37,18 @@ describe('DashboardComponent', () => {
     fixture.detectChanges();
   });
 
+  it('allows testing the generated html', () =>{
+
+      let element = fixture.debugElement.query(By.css('h1'));
+
+      expect(element.nativeElement.textContent).toContain(component.title);
+
+    });
+
   it('should create', () => {
+
     expect(component).toBeTruthy();
     expect(component.posts).toBe(POSTS);
+
   });
 });
